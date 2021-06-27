@@ -58,10 +58,10 @@ Along with `AmazonDynamoDBFullAccess` and `AWSLambdaBasicExecutionRole` and the 
 ```
 Replacing `<your account id>` with your 12 digit AWS account id.
 
-3. Go to https://sellercentral.amazon.com/sellingpartner/developerconsole and create a new app.
-4. In this code base, copy `secrets.template.py` to `secrets.py`. We will fill it out in the next step.
+3. In this code base, copy `secrets.template.py` to `secrets.py`. We will fill it out in the next step.
+4. Go to https://sellercentral.amazon.com/sellingpartner/developerconsole and create a new app.
 5. Click `View` under `LWA Credentials` and copy the client identifier and client secret into the `secrets.py`. Under `Actions` dropdown click `Authorize`. This will provide you with a long term refresh token that you can use without going through the OAuth flow. Copy this refresh token to `secrets.py` as the `refresh_token`.
 6. Install all dependencies via pip e.g. `pip3 install --target ./package requirements.txt`
 7. Use `python3 create_lambda_package.py` to create a Lambda zip file.
-8. Create a new Lambda in AWS, selecting the role you create in step 2 as the execution role. *Make sure you set the execution timeout of the lambda to something like 2 minutes instead of the default 3 seconds*. Use the zip file as the lambda code. You may test the lambda to ensure it is working. Note that the test functionality will actually execute the lambda and will schedule any order requests that meet the guideline. You may check the console output to see which orders were review requested.
+8. Create a new Lambda in AWS, selecting the role you create in step 2 as the execution role. *Make sure you set the execution timeout of the lambda to something like 2 minutes instead of the default 3 seconds*. Use the zip file as the lambda code. You may test the lambda to ensure it is working. Note that the test functionality will actually execute the lambda and will schedule any order review requests that meet the guideline. You may check the console output to see which orders were review requested.
 9. Create a new rule based event in CloudWatch, using cron expression `0 17 * * ? *`. This will schedule the lambda to run at 10am PST each day. Set the target to the lambda function you created above in 6.
