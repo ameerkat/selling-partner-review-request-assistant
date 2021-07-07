@@ -1,3 +1,4 @@
 requests
 requests-sigv4
 boto3
+facebook_business

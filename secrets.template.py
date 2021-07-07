@@ -1,4 +1,11 @@
 ##
+## Email Address Settings
+##
+
+ses_send_from_address = None
+ses_send_to_address = None
+
+##
 ## SP API Developer Settings
 ##
 
@@ -23,3 +30,13 @@ refresh_token = None
 access_key = None
 secret_key = None
 registered_role_arn = None
+
+# Rainforest API Key
+rainforest_api_key = None
+product_asin = None
+
+# Facebook Ads
+facebook_access_token = None
+facebook_app_secret = None
+facebook_app_id = None
+facebook_ad_set_id = None

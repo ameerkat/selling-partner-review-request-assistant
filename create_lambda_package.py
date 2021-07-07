@@ -5,6 +5,7 @@
 # the package.
 
 import os
+import os.path
 import zipfile
 
 def zip_dir(path, ziph):
@@ -18,6 +19,6 @@ def zip_file(path, ziph):
 
 zipf = zipfile.ZipFile('main.zip', 'w', zipfile.ZIP_DEFLATED)
 zip_dir('package', zipf)
-zip_file('main.py', zipf)
-zip_file('secrets.py', zipf)
+for python_file in [f for f in os.listdir('.') if os.path.isfile(f) and f.endswith('.py')]:
+    zip_file(python_file, zipf)
 zipf.close()

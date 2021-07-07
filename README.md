@@ -65,3 +65,6 @@ Replacing `<your account id>` with your 12 digit AWS account id.
 7. Use `python3 create_lambda_package.py` to create a Lambda zip file.
 8. Create a new Lambda in AWS, selecting the role you create in step 2 as the execution role. *Make sure you set the execution timeout of the lambda to something like 2 minutes instead of the default 3 seconds*. Use the zip file as the lambda code. You may test the lambda to ensure it is working. Note that the test functionality will actually execute the lambda and will schedule any order review requests that meet the guideline. You may check the console output to see which orders were review requested.
 9. Create a new rule based event in CloudWatch, using cron expression `0 17 * * ? *`. This will schedule the lambda to run at 10am PST each day. Set the target to the lambda function you created above in 8.
+
+## TODO
+* Currently I mashed a lot of add-ons like rainforest API and facebook advertising monitoring onto this lambda so that I can monitor my product holistically and get a single email update every day. This should be structured a little more modularly to allow for extensibility.
