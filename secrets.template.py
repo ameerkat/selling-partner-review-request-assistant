@@ -3,14 +3,15 @@
 ##
 
 # This is the first part of the LWA credentials from the developer console
-# and is specific to the application you set up.
+# and is specific to the application you set up. This looks something like
+# "amzn1.application-oa2-client.<hex id>"
 client_id = None
 
 # This is the hidden part of the LWA credentials from the developer console
 client_secret = None
 
 # This is what you get after you click Authorize to initate a self authorization
-# for this specific application.
+# for this specific application in the specific marketplace.
 refresh_token = None
 
 ##
